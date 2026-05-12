@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario PDF para Discord</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-YcsIPGdhPK4oN3h9vDOMkMt2rt7NmBGG99nmHn7+PBkO5RAwOB1p5MNDoAuCEi0aKBslrHong2drXr/7EQo1Iw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Envio rapido</p>
+        <h1>Formulario com PDF automatico</h1>
+        <p class="subtitle">
+          Preencha os dados, envie as imagens e gere um PDF que vai direto para o
+          Discord.
+        </p>
+      </header>
+
+      <section class="card">
+        <form id="report-form">
+          <label class="field">
+            <span>Nome</span>
+            <input type="text" name="name" required placeholder="Seu nome" />
+          </label>
+
+          <label class="field">
+            <span>E-mail (opcional)</span>
+            <input type="email" name="email" placeholder="voce@email.com" />
+          </label>
+
+          <label class="field">
+            <span>Mensagem</span>
+            <textarea
+              name="message"
+              rows="5"
+              required
+              placeholder="Descreva o que precisa enviar"
+            ></textarea>
+          </label>
+
+          <label class="field">
+            <span>Upload de imagens</span>
+            <input type="file" name="images" accept="image/*" multiple />
+            <small>Escolha uma ou mais imagens (JPG, PNG, WebP).</small>
+          </label>
+
+          <button type="submit" class="primary">Enviar</button>
+          <p class="status" id="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="preview" aria-hidden="true">
+        <div id="pdf-preview" class="pdf"></div>
+      </section>
+    </main>
+  </body>
+</html>
